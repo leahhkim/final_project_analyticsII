@@ -36,9 +36,27 @@ The data has been preprocessed to remove potential label leakage, handle missing
 │   └── nvss_aggregated.csv               # Complete preprocessed dataset
 │
 ├── NOTEBOOKS/                             # Machine learning model development
+│   ├── Descriptive_Analysis.ipynb        # Exploratory data analysis and visualization
 │   ├── SVM.ipynb                         # Support Vector Machine implementation
+│   ├── Penalized_Logistics_Regression.ipynb # Lasso, Ridge, and Elastic Net models
 │   ├── Neural_Network_Prediction.ipynb   # Neural network models
-│   └── Ensemble.ipynb                    # Ensemble methods and model comparison
+│   ├── Neural_Network_Prediction_Optimized.ipynb # Optimized neural network architecture
+│   ├── Ensemble.ipynb                    # XGBoost and ensemble methods
+│   └── Final_Test_Evaluation.ipynb       # Final model evaluation on test set
+│
+├── output/                                # Trained models and evaluation results
+│   ├── best_mlp_infant_mortality.pt      # Best performing neural network model
+│   ├── svm_best_model.joblib             # Optimized SVM model
+│   ├── svm_gridsearch.joblib             # SVM grid search results
+│   ├── lasso_model.joblib                # Lasso regression model
+│   ├── ridge_model.joblib                # Ridge regression model
+│   ├── elastic_model.joblib              # Elastic Net model
+│   ├── xgb_best_model.joblib             # Best XGBoost model
+│   ├── xgb_randomsearch.joblib           # XGBoost random search results
+│   ├── overall_accuracy.png              # Overall model accuracy comparison
+│   ├── Positive_case_accuracy.png        # Positive case detection accuracy
+│   ├── neural_network_loss.png           # Neural network training loss curves
+│   └── overfitting.jpg                   # Overfitting analysis visualization
 │
 └── env/                                   # Python virtual environment
 ```
@@ -71,24 +89,32 @@ The models utilize carefully selected features from the NVSS dataset:
 - pandas
 - numpy
 - scikit-learn
+- torch (PyTorch)
+- xgboost
 - matplotlib
 - seaborn
 - jupyter
+- joblib
 
 ## Usage
 
 1. **Data Preprocessing:** Start with `Data/Train_Test_Validaiton_Split.ipynb` to understand the data preparation process
-2. **Model Training:** Explore the notebooks in `NOTEBOOKS/` to see different modeling approaches
-3. **Model Evaluation:** Compare model performance metrics across different algorithms
+2. **Exploratory Analysis:** Review `NOTEBOOKS/Descriptive_Analysis.ipynb` for data insights and visualizations
+3. **Model Training:** Explore individual model notebooks (SVM, Neural Networks, Penalized Regression, Ensemble)
+4. **Model Comparison:** Check `output/` directory for performance metrics and visualizations
+5. **Final Evaluation:** See `NOTEBOOKS/Final_Test_Evaluation.ipynb` for comprehensive test set results
 
 ## Models Implemented
 
-- Support Vector Machine (SVM)
-- Neural Networks
-- Ensemble Methods
-- Regularized Logistic Regression
+**Support Vector Machine (SVM):** Grid search optimization with various kernels and hyperparameters
 
-Each model is trained on the same preprocessed dataset and evaluated using consistent metrics including accuracy, precision, recall, F1-score, and ROC-AUC.
+**Penalized Logistic Regression:** Lasso (L1), Ridge (L2), and Elastic Net regularization
+
+**Neural Networks:** Multi-layer perceptron with optimized architecture and training procedures
+
+**Ensemble Methods:** XGBoost with random search hyperparameter tuning
+
+Each model is trained on the same preprocessed dataset and evaluated using consistent metrics including accuracy, precision, recall, F1-score, and ROC-AUC. Trained models are saved in the `output/` directory for reproducibility.
 
 ## Project Goals
 
