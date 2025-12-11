@@ -26,7 +26,7 @@ The data has been preprocessed to remove potential label leakage, handle missing
 ```text
 .
 ├── README.md                              # Project overview and documentation
-│
+├── Final_Report.pdf                       # Final project report (1–2 pages)
 ├── Data/                                  # Data files and preprocessing
 │   ├── linkco2013us_den.csv              # Original NVSS linked birth-death dataset
 │   ├── Train_Test_Validaiton_Split.ipynb # Data preprocessing and split generation
